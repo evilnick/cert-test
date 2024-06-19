@@ -1,0 +1,5 @@
+# Remediations
+
+Xxxxxx xxxx xx xx xxxx xx x xxxxx xx xxx xx xxxxxxxxxx xxxx xxx xxx xxxxxx xx Xxxx. Xxxx xxxx xxxx xxxxx xxxxx xxxx xx xx xxxxxxx xxx xxx xx xxx xxxx xxxx xxx xxxx. X xx xx xx xxxxx xx xxxxxxxxxx xxx xx xxx xxxxxx xxxxx xx. Xxxxxx xxxx xx xx xxxx xx x xxxxx xx xxx xx xxxxxxxxxx xxxx xxx xxx xxxxxx xx Xxxx. Xxxx xxxx xxxx xxxxx xxxxx xxxx xx xx xxxxxxx xxx xxx xx xxx xxxx xxxx xxx xxxx. X xx xx xx xxxxx xx xxxxxxxxxx xxx xx xxx xxxxxx xxxxx xx. 
+
+Xxxx xxxxxxxxxx xxx xx xxxxx xx x xxxxxxxxxxxx. Xxxxxxx xxxx xxxxxxxxxxxx xxx xxxxx xxx xx xxxx xx xxxxxx xxxxxxxxxxx xxxxx xxxxxxxx xxxxx Xxxxx xxxxxxxx xxxxx xxx xxxxxxxxxxx. Xxxxxxxx xxxxx xxxxxxx xxxxx xxxxxx xxxx xxxxxx xxxxxxxxxxx xxxxxx xxxxxxx xx xxxxxxxxx xxx xxxxxxxxxx xxx xxxxxxxxxx xxx xxxxx xxxxx xxxxxxxx xxxxxxxx xxxxxx xxxxxxxxxxx xx xxxxxxxx xxxxxx xxxxx xxx. Xxxxx xxx xxxxx xxxxxxx xxx xx xxxxxxx. Xxxx xxxxxxxxxx xxx xx xxxxx xx x xxxxxxxxxxxx.

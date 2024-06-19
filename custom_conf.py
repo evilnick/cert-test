@@ -1,12 +1,22 @@
 import datetime
 
+# Custom configuration for the Sphinx documentation builder.
+# All configuration specific to your project should be done in this file.
+#
+# The file is included in the common conf.py configuration file.
+# You can modify any of the settings below or add any configuration that
+# is not covered by the common conf.py file.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+#
+# If you're not familiar with Sphinx and don't want to use advanced
+# features, it is sufficient to update the settings in the "Project
+# information" section.
+
 ############################################################
 ### Project information
 ############################################################
-
-extensions = [
-    "canonical_sphinx",
-]
 
 # Product name
 project = 'Documentation starter pack'
@@ -47,7 +57,7 @@ ogp_image = 'https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg
 
 # Update with the local path to the favicon for your product
 # (default is the circle of friends)
-#html_favicon = '.sphinx/_static/favicon.png'
+html_favicon = '.sphinx/_static/favicon.png'
 
 # (Some settings must be part of the html_context dictionary, while others
 #  are on root level. Don't move the settings.)
@@ -107,8 +117,6 @@ html_context = {
 # slug (for example, "lxd") here.
 slug = ""
 
-
-templates_path = ['.sphinx/_templates']
 ############################################################
 ### Redirects
 ############################################################
@@ -138,19 +146,52 @@ custom_linkcheck_anchors_ignore_for_url = []
 ### Additions to default configuration
 ############################################################
 
+## The following settings are appended to the default configuration.
+## Use them to extend the default functionality.
+
+# Remove this variable to disable the MyST parser extensions.
+custom_myst_extensions = []
+
+# Add custom Sphinx extensions as needed.
+# This array contains recommended extensions that should be used.
+# NOTE: The following extensions are handled automatically and do
+# not need to be added here: myst_parser, sphinx_copybutton, sphinx_design,
+# sphinx_reredirects, sphinxcontrib.jquery, sphinxext.opengraph
+custom_extensions = [
+    'sphinx_tabs.tabs',
+    'canonical.youtube-links',
+    'canonical.related-links',
+    'canonical.custom-rst-roles',
+    'canonical.terminal-output',
+    'notfound.extension'
+    ]
+
+# Add custom required Python modules that must be added to the
+# .sphinx/requirements.txt file.
+# NOTE: The following modules are handled automatically and do not need to be
+# added here: canonical-sphinx-extensions, furo, linkify-it-py, myst-parser,
+# pyspelling, sphinx, sphinx-autobuild, sphinx-copybutton, sphinx-design,
+# sphinx-notfound-page, sphinx-reredirects, sphinx-tabs, sphinxcontrib-jquery,
+# sphinxext-opengraph
+custom_required_modules = []
+
 # Add files or directories that should be excluded from processing.
-exclude_patterns = [
+custom_excludes = [
     'doc-cheat-sheet*',
     ]
+
+# Add CSS files (located in .sphinx/_static/)
+custom_html_css_files = []
+
+# Add JavaScript files (located in .sphinx/_static/)
+custom_html_js_files = []
 
 ## The following settings override the default configuration.
 
 # Specify a reST string that is included at the end of each file.
 # If commented out, use the default (which pulls the reuse/links.txt
 # file into each reST file).
-rst_epilog = '''
-.. include:: /reuse/links.txt
-'''
+# custom_rst_epilog = ''
 
 # By default, the documentation includes a feedback button at the top.
 # You can disable it by setting the following configuration to True.
@@ -158,7 +199,11 @@ disable_feedback_button = False
 
 # Add tags that you want to use for conditional inclusion of text
 # (https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tags)
-tags = []
+custom_tags = []
+
+# If you are using the :manpage: role, set this variable to the URL for the version
+# that you want to link to:
+# manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
 
 ############################################################
 ### Additional configuration
@@ -185,8 +230,8 @@ latex_elements = {
 %\usepackage{charter}
 %\usepackage[defaultsans]{lato}
 %\usepackage{inconsolata}
-\setmainfont[Path = ../../.sphinx/fonts/, UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI]{Ubuntu}
-\setmonofont[Path = ../../.sphinx/fonts/, UprightFont = *-R]{UbuntuMono}
+\setmainfont[UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI]{Ubuntu}
+\setmonofont[UprightFont = *-R]{UbuntuMono}
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{breakable}
 \usepackage{lastpage}
