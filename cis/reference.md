@@ -1,4 +1,4 @@
-# Appendix
+# CIS Benchmark reference
 
 ```{include} ./_parts/master.md
 ```

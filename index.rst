@@ -1,5 +1,5 @@
-CIS compliance for XXXXX
-========================
+CIS compliance
+==============
 
 
 
@@ -12,4 +12,4 @@ CIS compliance for XXXXX
    cis/overview
    cis/status
    cis/remediations
-   cis/appendix
+   cis/reference
