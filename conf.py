@@ -174,7 +174,7 @@ rst_prolog = '''
 
 ## PDF specific config
 
-pdf_subtitle = ''
+pdf_subtitle = 'Canonical Kubernetes'
 
 latex_engine = 'xelatex'
 # This whole thing is a hack and a half, but it works.
@@ -233,7 +233,7 @@ latex_elements = {
 }
 \fancypagestyle{titlepage}{%
     \fancyhf{}
-    \fancyfoot[L]{\footnotesize \textcolor{copyright}{© 2023 Canonical Ltd. All rights reserved. \newline Confidential and proprietary, do not share without permission.}}
+    \fancyfoot[L]{\footnotesize \textcolor{copyright}{© 2024 Canonical Ltd. All rights reserved.}}
 }
 \newcommand\sphinxbackoftitlepage{\thispagestyle{titlepage}}
 \titleformat{\chapter}[block]{\Huge \color{title} \bfseries\filright}{\thechapter .}{1.5ex}{}
