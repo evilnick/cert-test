@@ -9,13 +9,13 @@ extensions = [
 ]
 
 # Product name
-project = 'Documentation starter pack'
+project = 'CIS Compliance'
 author = 'Canonical Group Ltd'
 
 # The title you want to display for the documentation in the sidebar.
 # You might want to include a version number here.
 # To not display any title, set this option to an empty string.
-html_title = project + ' documentation'
+html_title = project + ' K8s'
 
 # The default value uses the current year as the copyright year.
 #
@@ -71,11 +71,11 @@ html_context = {
 
     # Change to the Mattermost channel you want to link to
     # (use an empty value if you don't want to link)
-    'mattermost': 'https://chat.canonical.com/canonical/channels/documentation',
+    'mattermost': '',
 
     # Change to the Matrix channel you want to link to
     # (use an empty value if you don't want to link)
-    'matrix': 'https://matrix.to/#/#documentation:ubuntu.com',
+    'matrix': '',
 
     # Change to the GitHub URL for your project
     # This is used, for example, to link to the source files and allow creating GitHub issues directly from the documentation.
@@ -94,10 +94,10 @@ html_context = {
 
     # Controls the existence of Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
-    'sequential_nav': "none",
+    'sequential_nav': "both",
 
     # Controls if to display the contributors of a file or not
-    "display_contributors": True,
+    "display_contributors": False,
 
     # Controls time frame for showing the contributors
     "display_contributors_since": ""
