@@ -142,7 +142,7 @@ custom_linkcheck_anchors_ignore_for_url = []
 # Add files or directories that should be excluded from processing.
 exclude_patterns = [
     'doc-cheat-sheet*',
-    '_parts/*',
+    'cis/_parts/*',
     ]
 
 ## The following settings override the default configuration.
