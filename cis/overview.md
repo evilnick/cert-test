@@ -1,5 +1,15 @@
 # Overview
 
-Xxxxxx xxxx xx xx xxxx xx x xxxxx xx xxx xx xxxxxxxxxx xxxx xxx xxx xxxxxx xx Xxxx. Xxxx xxxx xxxx xxxxx xxxxx xxxx xx xx xxxxxxx xxx xxx xx xxx xxxx xxxx xxx xxxx. X xx xx xx xxxxx xx xxxxxxxxxx xxx xx xxx xxxxxx xxxxx xx. Xxxxxx xxxx xx xx xxxx xx x xxxxx xx xxx xx xxxxxxxxxx xxxx xxx xxx xxxxxx xx Xxxx. Xxxx xxxx xxxx xxxxx xxxxx xxxx xx xx xxxxxxx xxx xxx xx xxx xxxx xxxx xxx xxxx. X xx xx xx xxxxx xx xxxxxxxxxx xxx xx xxx xxxxxx xxxxx xx. 
+Canonical Kubernetes is developed to high standards of security and is designed
+to be secure by default wherever possible.
 
-Xxxx xxxxxxxxxx xxx xx xxxxx xx x xxxxxxxxxxxx. Xxxxxxx xxxx xxxxxxxxxxxx xxx xxxxx xxx xx xxxx xx xxxxxx xxxxxxxxxxx xxxxx xxxxxxxx xxxxx Xxxxx xxxxxxxx xxxxx xxx xxxxxxxxxxx. Xxxxxxxx xxxxx xxxxxxx xxxxx xxxxxx xxxx xxxxxx xxxxxxxxxxx xxxxxx xxxxxxx xx xxxxxxxxx xxx xxxxxxxxxx xxx xxxxxxxxxx xxx xxxxx xxxxx xxxxxxxx xxxxxxxx xxxxxx xxxxxxxxxxx xx xxxxxxxx xxxxxx xxxxx xxx. Xxxxx xxx xxxxx xxxxxxx xxx xx xxxxxxx. Xxxx xxxxxxxxxx xxx xx xxxxx xx x xxxxxxxxxxxx.
+Some of the CIS benchmark recommendations are dependent on factors outside of
+the control of Canonical Kubernetes itself (for example, aspects of the host OS
+or user settings). Therefore it is necessary for the user to take some steps to
+ensure full compliance.
+
+The following sections cover:
+
+- The tested {doc}`status` of Canonical Kubernetes
+- The {doc}`remediations` suggested by this status, which users would need to apply
+- A full {doc}`reference` guide to the applicable CIS Benchmark

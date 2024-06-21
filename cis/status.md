@@ -1,15 +1,13 @@
 # Status
 
-Canonical Kubernetes is developed to high standards of security and is designed
-to be secure by default wherever possible.
+This indicates the level of compliance with the relevant CIS Benchmark for an
+***as shipped*** install of Canonical Kubernetes. Regardless of whether users
+have changed settings or configuration, we highly reccomend that an audit is
+performed on the installed software to ensure compliance.
 
-Some of the CIS benchmark recommendations are dependent on factors outside of
-the control of Canonical Kubernetes itself (e.g. aspects of the host OS). For
-these known cases, remediations are linked in the following section of this
-document.
-
-To check the status of Canonical Kubernetes against the benchmark, we use 
-
+The {doc}`reference` section includes audit steps for every part of the CIS
+benchmark. We also reccomend the [Kube-bench][] tool for automated testing of
+some aspects of the benchmark.
 
 ```{include} ./_parts/kubebench.md
 ```
@@ -19,3 +17,8 @@ To check the status of Canonical Kubernetes against the benchmark, we use
 
     \clearpage
 ```
+
+
+<!--LINKS -->
+
+[Kube-bench]: https://github.com/aquasecurity/kube-bench

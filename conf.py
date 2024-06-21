@@ -109,6 +109,7 @@ slug = ""
 
 
 templates_path = ['.sphinx/_templates']
+html_css_files = ["latex.css"]
 ############################################################
 ### Redirects
 ############################################################
@@ -141,6 +142,7 @@ custom_linkcheck_anchors_ignore_for_url = []
 # Add files or directories that should be excluded from processing.
 exclude_patterns = [
     'doc-cheat-sheet*',
+    '_parts/*',
     ]
 
 ## The following settings override the default configuration.
@@ -175,12 +177,14 @@ rst_prolog = '''
 ## PDF specific config
 
 pdf_subtitle = 'Canonical Kubernetes'
-
+prepared = 'Prepared: ' + datetime.date.today().strftime('%Y-%m-%d')
+k8sversion = 'Version: Kubernetes 1.30'
 latex_engine = 'xelatex'
 # This whole thing is a hack and a half, but it works.
 latex_elements = {
     'pointsize': '11pt',
     'fncychap': '',
+    'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r'''
 %\usepackage{charter}
 %\usepackage[defaultsans]{lato}
@@ -197,12 +201,16 @@ latex_elements = {
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{fontspec}
+\usepackage{xcolor}
 \graphicspath{ {../../.sphinx/images/} }
 \definecolor{yellowgreen}{RGB}{154, 205, 50}
 \definecolor{title}{RGB}{76, 17, 48}
 \definecolor{subtitle}{RGB}{116, 27, 71}
 \definecolor{label}{RGB}{119, 41, 100}
 \definecolor{copyright}{RGB}{174, 167, 159}
+\usepackage{draftwatermark}
+\SetWatermarkText{DRAFT}
+\SetWatermarkScale{1}
 \makeatletter
 \def\tcb@finalize@environment{%
   \color{.}% hack for xelatex
@@ -248,6 +256,10 @@ latex_elements = {
     'sphinxsetup': 'verbatimwithframe=false, pre_border-radius=0pt, verbatimvisiblespace=\\phantom{}, verbatimcontinued=\\phantom{}',
     'extraclassoptions': 'openany,oneside',
     'maketitle': r'''
+\newcommand{\DUrolestatusfail}[1]{{\color{red} #1}}
+\newcommand{\DUrolestatuswarn}[1]{{\color{orange} #1}}
+\newcommand{\DUrolestatusinfo}[1]{{\color{blue} #1}}
+\newcommand{\DUrolestatuspass}[1]{{\color{green} #1}}
 \begin{titlepage}
 \begin{flushleft}
         \hbox
@@ -263,8 +275,12 @@ latex_elements = {
 
 \vfill
 
-\textcolor{label}{''' + copyright + r'''}
+\vfill
 
+
+\textcolor{label}{''' + k8sversion + r'''}
+\newline
+\textcolor{label}{''' + prepared + r'''}
 \vfill
 
 \AddToHook{shipout/background}{
