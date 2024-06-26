@@ -1,21 +1,31 @@
 import datetime
 
+# Custom configuration for the Sphinx documentation builder.
+# All configuration specific to your project should be done in this file.
+#
+# The file is included in the common conf.py configuration file.
+# You can modify any of the settings below or add any configuration that
+# is not covered by the common conf.py file.
+#
+# For the full list of built-in configuration values, see the documentation:
+# https://www.sphinx-doc.org/en/master/usage/configuration.html
+#
+# If you're not familiar with Sphinx and don't want to use advanced
+# features, it is sufficient to update the settings in the "Project
+# information" section.
+
 ############################################################
 ### Project information
 ############################################################
 
-extensions = [
-    "canonical_sphinx",
-]
-
 # Product name
-project = 'CIS Compliance'
+project = 'Documentation starter pack'
 author = 'Canonical Group Ltd'
 
 # The title you want to display for the documentation in the sidebar.
 # You might want to include a version number here.
 # To not display any title, set this option to an empty string.
-html_title = project + ' K8s'
+html_title = project + ' documentation'
 
 # The default value uses the current year as the copyright year.
 #
@@ -47,7 +57,7 @@ ogp_image = 'https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg
 
 # Update with the local path to the favicon for your product
 # (default is the circle of friends)
-#html_favicon = '.sphinx/_static/favicon.png'
+html_favicon = '.sphinx/_static/favicon.png'
 
 # (Some settings must be part of the html_context dictionary, while others
 #  are on root level. Don't move the settings.)
@@ -71,11 +81,11 @@ html_context = {
 
     # Change to the Mattermost channel you want to link to
     # (use an empty value if you don't want to link)
-    'mattermost': '',
+    'mattermost': 'https://chat.canonical.com/canonical/channels/documentation',
 
     # Change to the Matrix channel you want to link to
     # (use an empty value if you don't want to link)
-    'matrix': '',
+    'matrix': 'https://matrix.to/#/#documentation:ubuntu.com',
 
     # Change to the GitHub URL for your project
     # This is used, for example, to link to the source files and allow creating GitHub issues directly from the documentation.
@@ -94,10 +104,10 @@ html_context = {
 
     # Controls the existence of Previous / Next buttons at the bottom of pages
     # Valid options: none, prev, next, both
-    'sequential_nav': "both",
+    'sequential_nav': "none",
 
     # Controls if to display the contributors of a file or not
-    "display_contributors": False,
+    "display_contributors": True,
 
     # Controls time frame for showing the contributors
     "display_contributors_since": ""
@@ -107,9 +117,6 @@ html_context = {
 # slug (for example, "lxd") here.
 slug = ""
 
-
-templates_path = ['.sphinx/_templates']
-html_css_files = ["latex.css"]
 ############################################################
 ### Redirects
 ############################################################
@@ -139,20 +146,52 @@ custom_linkcheck_anchors_ignore_for_url = []
 ### Additions to default configuration
 ############################################################
 
-# Add files or directories that should be excluded from processing.
-exclude_patterns = [
-    'doc-cheat-sheet*',
-    'cis/_parts/*',
+## The following settings are appended to the default configuration.
+## Use them to extend the default functionality.
+
+# Remove this variable to disable the MyST parser extensions.
+custom_myst_extensions = []
+
+# Add custom Sphinx extensions as needed.
+# This array contains recommended extensions that should be used.
+# NOTE: The following extensions are handled automatically and do
+# not need to be added here: myst_parser, sphinx_copybutton, sphinx_design,
+# sphinx_reredirects, sphinxcontrib.jquery, sphinxext.opengraph
+custom_extensions = [
+    'sphinx_tabs.tabs',
+    'canonical.youtube-links',
+    'canonical.related-links',
+    'canonical.custom-rst-roles',
+    'canonical.terminal-output',
+    'notfound.extension'
     ]
+
+# Add custom required Python modules that must be added to the
+# .sphinx/requirements.txt file.
+# NOTE: The following modules are handled automatically and do not need to be
+# added here: canonical-sphinx-extensions, furo, linkify-it-py, myst-parser,
+# pyspelling, sphinx, sphinx-autobuild, sphinx-copybutton, sphinx-design,
+# sphinx-notfound-page, sphinx-reredirects, sphinx-tabs, sphinxcontrib-jquery,
+# sphinxext-opengraph
+custom_required_modules = []
+
+# Add files or directories that should be excluded from processing.
+custom_excludes = [
+    'doc-cheat-sheet*',
+    ]
+
+# Add CSS files (located in .sphinx/_static/)
+custom_html_css_files = []
+
+# Add JavaScript files (located in .sphinx/_static/)
+custom_html_js_files = []
 
 ## The following settings override the default configuration.
 
 # Specify a reST string that is included at the end of each file.
 # If commented out, use the default (which pulls the reuse/links.txt
 # file into each reST file).
-rst_epilog = '''
-.. include:: /reuse/links.txt
-'''
+# custom_rst_epilog = ''
 
 # By default, the documentation includes a feedback button at the top.
 # You can disable it by setting the following configuration to True.
@@ -160,7 +199,11 @@ disable_feedback_button = False
 
 # Add tags that you want to use for conditional inclusion of text
 # (https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#tags)
-tags = []
+custom_tags = []
+
+# If you are using the :manpage: role, set this variable to the URL for the version
+# that you want to link to:
+# manpages_url = "https://manpages.ubuntu.com/manpages/noble/en/man{section}/{page}.{section}.html"
 
 ############################################################
 ### Additional configuration
@@ -176,21 +219,19 @@ rst_prolog = '''
 
 ## PDF specific config
 
-pdf_subtitle = 'Canonical Kubernetes'
-prepared = 'Prepared: ' + datetime.date.today().strftime('%Y-%m-%d')
-k8sversion = 'Version: Kubernetes 1.30'
+pdf_subtitle = ''
+
 latex_engine = 'xelatex'
 # This whole thing is a hack and a half, but it works.
 latex_elements = {
     'pointsize': '11pt',
     'fncychap': '',
-    'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r'''
 %\usepackage{charter}
 %\usepackage[defaultsans]{lato}
 %\usepackage{inconsolata}
-\setmainfont[Path = ../../.sphinx/fonts/, UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI]{Ubuntu}
-\setmonofont[Path = ../../.sphinx/fonts/, UprightFont = *-R]{UbuntuMono}
+\setmainfont[UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI]{Ubuntu}
+\setmonofont[UprightFont = *-R]{UbuntuMono}
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{breakable}
 \usepackage{lastpage}
@@ -201,16 +242,12 @@ latex_elements = {
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{fontspec}
-\usepackage{xcolor}
 \graphicspath{ {../../.sphinx/images/} }
 \definecolor{yellowgreen}{RGB}{154, 205, 50}
 \definecolor{title}{RGB}{76, 17, 48}
 \definecolor{subtitle}{RGB}{116, 27, 71}
 \definecolor{label}{RGB}{119, 41, 100}
 \definecolor{copyright}{RGB}{174, 167, 159}
-\usepackage{draftwatermark}
-\SetWatermarkText{DRAFT}
-\SetWatermarkScale{1}
 \makeatletter
 \def\tcb@finalize@environment{%
   \color{.}% hack for xelatex
@@ -241,7 +278,7 @@ latex_elements = {
 }
 \fancypagestyle{titlepage}{%
     \fancyhf{}
-    \fancyfoot[L]{\footnotesize \textcolor{copyright}{© 2024 Canonical Ltd. All rights reserved.}}
+    \fancyfoot[L]{\footnotesize \textcolor{copyright}{© 2023 Canonical Ltd. All rights reserved. \newline Confidential and proprietary, do not share without permission.}}
 }
 \newcommand\sphinxbackoftitlepage{\thispagestyle{titlepage}}
 \titleformat{\chapter}[block]{\Huge \color{title} \bfseries\filright}{\thechapter .}{1.5ex}{}
@@ -256,10 +293,6 @@ latex_elements = {
     'sphinxsetup': 'verbatimwithframe=false, pre_border-radius=0pt, verbatimvisiblespace=\\phantom{}, verbatimcontinued=\\phantom{}',
     'extraclassoptions': 'openany,oneside',
     'maketitle': r'''
-\newcommand{\DUrolestatusfail}[1]{{\color{red} #1}}
-\newcommand{\DUrolestatuswarn}[1]{{\color{orange} #1}}
-\newcommand{\DUrolestatusinfo}[1]{{\color{blue} #1}}
-\newcommand{\DUrolestatuspass}[1]{{\color{green} #1}}
 \begin{titlepage}
 \begin{flushleft}
         \hbox
@@ -275,12 +308,8 @@ latex_elements = {
 
 \vfill
 
-\vfill
+\textcolor{label}{''' + copyright + r'''}
 
-
-\textcolor{label}{''' + k8sversion + r'''}
-\newline
-\textcolor{label}{''' + prepared + r'''}
 \vfill
 
 \AddToHook{shipout/background}{
